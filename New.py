@@ -1,3 +1,0 @@
-"[python]": {
-    "editor.defaultFormatter": "ms-python.autopep8"
-  }
