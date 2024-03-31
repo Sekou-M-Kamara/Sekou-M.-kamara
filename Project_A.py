@@ -21,29 +21,33 @@
 
 # def inform_user():
 #     print("")
-class Grade_Repository:
+
+list_stu = []
+
+
+class teacher_account:
     def __init__(self, user_name, idn_num):
         # print("Successfully created👍")
         self.User_Name = user_name
         self.Idn_num = idn_num
 
     def add_stu(self):
-        list_stu = []
+        global list_stu
+        student_num = 0
+        student_name = input("\nPlease enter a student  name.\n")
+        list_stu.append(student_name)
+        student_num += 1
+        print(
+            f"\n{student_name} is  added to  the list.\n{list_stu}\nStudent_Number = {student_num}")
+        prom_again = input("\nAgain?\nY or N\n")
+        if prom_again == "Y":
+            self.add_stu()
+        else:
+            return
 
-        def student_list(self):
-            nonlocal list_stu
-            student_num = 0
-            student_name = input("\nPlease enter a student  name.\n")
-            list_stu.append(student_name)
-            student_num += 1
-            print(
-                f"\n{student_name} is  added to  the list.\n{list_stu}\nStudent_Number = {student_num}")
-            prom_again = input("\nAgain?\nY or N\n")
-            if prom_again == "Y":
-                self.add_stu()
-            else:
-                return
+    def student_list(self):
+        print(list_stu)
 
 
 Sekou = Grade_Repository("sekou", 145)
-print(Sekou.student_list())
+print(Sekou.add_stu())
