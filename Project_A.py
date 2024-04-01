@@ -1,53 +1,60 @@
-# import random
+import random
 
 
-# def identity_generator():
-#     list_check = []
-#     full_name = input("\nPlease enter a prospective user name.\n")
-#     if full_name in list_check:
-#         return
-#     else:
-#         rand_code = random.sample(range(10), 3).
-#         list_check.append(full_name)
-#         print(f"\n{full_name}, your identification number has successfully being generated.\nIndentifiction_Number = {rand_code}.")
+def identity_generator():
+    full_name = input("\nPlease enter a prospective user name.\n")
+    Idn_num = " "
+    rand_code = random.sample(range(0, 10, 1), 3)
+    for i in rand_code:
+        Idn_num += str(i)
+    Idn_num = int(Idn_num)
 
-#     def inform_user():
-#         print(f"{full_name}, please use  both your identification number and prospective user name to  create a valid account")
-#         print("\n\nFormat: user_name =  Grade_Repository('user_name', idn_num)\nidn is  identificcation")
-#     inform_user()
+    print(f"\n{full_name}, your identification number has successfully being generated👍.\n\nIndentifiction_Number = {Idn_num}.")
 
-
-# identity_generator()
-
-# def inform_user():
-#     print("")
-
-list_stu = []
+    def inform_user():
+        print(f"\n{full_name}, please use  both your identification number and prospective user name to  create a valid account.")
+        print("\n\nFormat: user_name =  Grade_Repository('user_name', idn_num)\nIdn stands for  identificcation")
+    inform_user()
+    request_prom = input(
+        "\nTo  understand our format of request, please input -h for help; else, any letter.\n")
+    if request_prom == "-h":
+        print("\nThese helps  are useful  after you have created an account\n\nuser_name.add_stu: To add a student to the list.\nuser_name.:  Gives you several methods you have at your diposal.\nProject_A.grades_depositor: To input students grade in a file.")
 
 
-class teacher_account:
-    def __init__(self, user_name, idn_num):
-        # print("Successfully created👍")
+class Account_creation:
+    def __init__(self, user_name, Idn_num):
         self.User_Name = user_name
-        self.Idn_num = idn_num
+        self.Idn_num = Idn_num
+        self.student_num = random.sample(range(0, 9, 2), 4)
+        self.stu_num = ""
+        print(f"\n>>>>> {self.User_Name}\n")
 
     def add_stu(self):
-        global list_stu
-        student_num = 0
+        for i in self.student_num:
+            self.stu_num += str(i)
         student_name = input("\nPlease enter a student  name.\n")
-        list_stu.append(student_name)
-        student_num += 1
-        print(
-            f"\n{student_name} is  added to  the list.\n{list_stu}\nStudent_Number = {student_num}")
+        with open("stu_list", "a") as f:
+            f.write(
+                f"name: {student_name} ---- admin#: {int(self.stu_num)}\n")
+        with open("stu_list", "r") as f:
+            read_list = f.read()
+        print(f"\n{student_name} is  added to  the list.\n{read_list}")
         prom_again = input("\nAgain?\nY or N\n")
         if prom_again == "Y":
             self.add_stu()
         else:
-            return
-
-    def student_list(self):
-        print(list_stu)
+            print("You exit!")
 
 
-Sekou = Grade_Repository("sekou", 145)
-print(Sekou.add_stu())
+class Grades_Depositor:
+    def __init__(self, stu_num, grade, subject):
+        self.stu_num = stu_num
+        self.grade = grade
+        self.subject = subject
+
+        with open("grades_list", "a") as f:
+            f.write(
+                f"stu_num: {self.stu_num} -- grade: {self.grade} -- sub: {self.subject}\n")
+        with open("grades_list", "r") as f:
+            read_grade = f.read()
+        print(f"\nGrade successfully  added\nSee info below\n\n{read_grade}")
