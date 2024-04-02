@@ -19,7 +19,7 @@ def number_operation():
             if continue_mul == "y":
                 multiplication()
             else:
-                print("Thanks for  playing🙏")
+                print(f"Thanks for  playing🙏\nAccumulated Point: {point_play}")
         else:
             print("\nYou are wrong😔\n")
             help_mul = input(
@@ -31,7 +31,8 @@ def number_operation():
                 if continue_mul == "y":
                     multiplication()
                 else:
-                    print("Thanks for playing🙏")
+                    print(
+                        f"Thanks for playing🙏\nAccumulated Point: {point_play}")
 
     def division():
         end_num = input("\nlevel?⬇️\n")
@@ -51,7 +52,8 @@ def number_operation():
                 if continue_div == "y":
                     division()
                 else:
-                    print("Thanks for playing🙏")
+                    print(
+                        f"Thanks for playing🙏\nAccumulated Point: {point_play}")
             else:
                 print("\nYou are wrong😔\n")
                 help_mul = input(
@@ -63,7 +65,8 @@ def number_operation():
                     if continue_div == "y":
                         division()
                     else:
-                        print("Thanks for playing🙏")
+                        print(
+                            f"Thanks for playing🙏\nAccumulated Point: {point_play}")
 
     def mixed_mul_div():
         end_num = input("\nlevel?⬇️\n")
@@ -83,7 +86,8 @@ def number_operation():
                 if continue_mix == "y":
                     mixed_mul_div()
                 else:
-                    print("Thanks for playing🙏")
+                    print(
+                        f"Thanks for playing🙏\nAccumulated Point: {point_play}")
             else:
                 print("\nYou are wrong😔\n")
                 help_mul = input(
@@ -95,7 +99,8 @@ def number_operation():
                     if continue_mix == "y":
                         mixed_mul_div()
                     else:
-                        print("Thanks for playing🙏")
+                        print(
+                            f"Thanks for playing🙏/nAccumulated  Point: {point_play}")
 
     def choice_game():
         print("\n**********************************************\n")
